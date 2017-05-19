@@ -1,0 +1,84 @@
+*{
+				margin: 0;
+				padding: 0;
+			}
+			#zhucebody{background-color: #999999;}
+			#zhuce{
+				width: 565px;
+				height: 630px;
+				margin: 0 auto;
+			}
+			#log{
+				width: 226px;
+				height: 106px;
+				background:url(../img/logo_icon.png);
+				float: left;
+				margin-left: 170px;
+				margin-top: 30px;
+			}
+			#zhucebox{
+				float: left;
+				width: 500px;
+				height: 400px;
+				margin-top: 30px;
+				color: white;
+				margin-left: 15px;
+				font-weight: bolder;
+				padding-left: 30px;
+			}
+		    #zhucebox p input{
+				width: 300px;
+				height: 50px;
+				background: #CBCBCB;
+				border: none;
+				outline: none;
+				margin-left: 30px;
+				color: white;
+				font-weight: bolder;
+				padding-left: 20px;
+			}
+			#zhucebox p{
+				width: 500px;
+				height: 50px;
+				margin-top: 20px;
+				font-size:13px ;
+				line-height: 50px;
+			}
+			 #zhucebox p #chek{
+				width: 13px;
+				height: 13px;
+				margin-left: 70px;
+			}
+			#zhucebtn{
+				width: 280px;
+				height: 50px;
+				background: #25292E;
+				border-radius: 6px;
+				border: none;
+				outline: none;
+				cursor: pointer;
+				color: white;
+                font-size: 16px;
+                font-weight: bolder;
+                margin-left: 85px;
+			}
+			#loginbtn{
+				color: white;
+				float: right;
+				margin-right: 115px;
+			}
+			#lianjie{
+				color: dodgerblue;
+			}
+			#logo{width:113px;height:195px;background:url(../img/denglu.png);
+			margin:0 auto;margin-top: 5%;}
+			#commit{width:285px;height: 200px;
+			margin:0 auto;margin-top: 5%;}
+			.z{width:250px;height: 40px;padding-left: 30px;border: none;
+			border-bottom: 2px solid #673AB7;font-size: 20px;outline: none;}
+			#username{background:url(../img/nlphone.png) no-repeat 0px 10px;}
+			#code{background:url(../img/nlcode.png)no-repeat 0px 10px;}
+			#login{width:280px;height: 50px;background-color: #6495ED;
+			font-size:30px;font-family: "楷体";}
+			input{margin-top: 10px;}
+			#more{width: 110px;height:30px;margin:0 auto;margin-top: 5%;}

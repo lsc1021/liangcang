@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<Link rel="shortcut icon" href="img/denglu1.png">
+		<link rel="stylesheet" type="text/css" href="css/liangcang.css"/>
+	</head>
+	<body>
+		<div id="logo">
+		</div>
+		<div id="commit">
+			<input class="z" type="text"  id="username"  placeholder="请输入用户名"/></br>
+			<input class="z" type="text"  id="code"  placeholder="请输入密码"/></br>
+			<input type="checkbox"  id="check" checked=""/>自动登录</br>
+			<input id="login"  type="submit" value="登录"/>
+		</div>
+		<p id="more">更多登录方式></p>
+	</body>
+	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$("#login").click(function(){
+			var username=$("#username").val();
+			var password=$("#code").val();
+			$.post("http://lc.shudong.wang/api_user.php",
+			{"status":"login","username":username,"password":password},
+			function(data){
+				if(data.code==0){
+					alert(data.message);
+					location.href="index.html";
+				}else{
+					alert(data.message);
+				}
+			},"json")
+		})
+	</script>
+</html>

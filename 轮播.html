@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;list-style: none;}
+			#lubo {
+				width: 1000px;
+				height: 475px;
+				margin: auto;
+				margin-top: 25px;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			#lubok {
+				width: 9000px;
+				height: 475px;
+				position: absolute;
+			}
+			
+			#lubok li {
+				float: left;
+			}
+			
+			#lubok img {
+				width: 1000px;
+				height: 475px;
+			}
+			.lub{
+				width: 50px;
+				height: 50px;
+				position: absolute;
+				border-radius: 50%;
+				text-align: center;
+				line-height: 50px;
+				font-size: 30px;
+				color: white;
+				cursor: pointer;
+				display: none;
+			}
+			.left {
+				left: 50px;
+				top: 210px;
+			}
+			.right {
+				right: 50px;
+				top: 210px;
+			}
+			.clickbtn{width:360px;height: 15px;margin:0 auto;display: none;}
+			.clickbtn li{width:40px;height:15px;background-color: #A8BECE;
+			margin-left: 5px;float: left;line-height: 15px;text-align: center;
+			}
+			#whitebtn{background-color: #4F748E;}
+		</style>
+	</head>
+	<body>
+		<div id="lubo">
+			<ul id="lubok">
+				
+			</ul>
+			<div class="lub left"><</div>
+			<div class="lub right">></div>
+		</div>
+		<div class="clickbtn">
+				<li id="whitebtn">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+			</div>
+	</body>
+	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+		$.ajax({url:"http://lc.shudong.wang/api_position.php",
+		dataType: 'json',
+		success:function(data){
+			$position_id=data.data[0].position_id;
+		$.get("http://lc.shudong.wang/api_ad.php",{"position_id":$position_id},function(data){
+//		console.log(data.data);
+		$arr=[];
+		$.each(data.data, function(index,value) {
+//			console.log(index);
+			console.log(value.url);
+			$arr.push(value.url);
+		});
+		$arr.push($arr[0]);
+		console.log($arr);
+		$.each($arr, function(index,value) {
+			$li=document.createElement("li");
+			$img=document.createElement("img");
+			$img.src=value;
+			$li.appendChild($img);
+			$("#lubok").append($li);
+			});
+	},"json")
+	}
+	});
+	
+	$(window).load(function(){
+		
+	$(".clickbtn").show();
+	var i=0;
+	var btn=$(".clickbtn li")
+		function addj() {
+		i++;
+		$("#lubok").animate({
+			"left": -1000 * i},500,
+		function() {
+				if(i == 8) {
+					i = 0;
+				$(this).css({"left": 0})
+	}}
+	)
+		for (var s=0;s<btn.length;s++) {
+				btn[s].id="";
+			}
+			btn[i>7?0:i].id="whitebtn";
+			
+	}
+		var time=setInterval(addj, 3000);
+		for (var j=0;j<btn.length;j++) {
+				btn[j].index=j;
+				btn[j].onclick=function(){
+					clearInterval(time)
+					$("#lubok").animate({"left":-1000*this.index},500);
+		for (var k=0;k<btn.length;k++) {
+					btn[k].id="";
+				}
+					this.id="whitebtn";
+					i=this.index;
+					time = setInterval(addj, 3000)
+				}
+		}
+				$("#lubo").mousemove(function() {
+					$(".right").show();
+					$(".left").show();
+					clearInterval(time)
+				})
+				$("#lubo").mouseout(function() {
+					$(".right").hide();
+					$(".left").hide();
+					time = setInterval(addj, 3000)
+				})
+				$(".left").mouseover(function() {
+					$(".left").css("background-color", "rgba(0, 0, 0, 0.41)");
+				})
+				$(".left").mouseout(function() {
+					$(".left").css("background-color", "");
+				})
+				$(".right").mouseover(function() {
+					$(".right").css("background-color", "rgba(0, 0, 0, 0.41)");
+				})
+				$(".right").mouseout(function() {
+					$(".right").css("background-color", "");
+				})
+				$(".left").click(function() {
+					if($("#lubok").is(":animated")) {
+						return;
+					}
+					$("#lubok").animate({
+						"left": -1000 * i
+					}, 800, function() {
+						if(i <= 0) {
+							i = 8;
+							$(this).css({
+								"left": -7000
+							})
+						}
+						i--;
+					});
+				})
+				$(".right").click(function() {
+					if($("#lubok").is(":animated")) {
+						return;
+					}
+					addj();
+				})
+				})
+	</script>
+</html>

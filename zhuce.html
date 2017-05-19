@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<Link rel="shortcut icon" href="img/zhuce.png">
+		<link rel="stylesheet" type="text/css" href="css/liangcang.css"/>
+	</head>
+	<body id="zhucebody">
+		<div id="zhuce">
+			<div id="log"></div>
+			<div id="zhucebox">
+			    <p>用 户 名 <input type="text" name="phone" id="phone" value="" placeholder="请输入用户名，3-20位数字字符组成"/></p>
+			    <p id="formart_phone" style="color: red;display: none;">用户名格式不正确</p>
+			    <p>创建密码<input type="password" name="password" id="pwd" value="" placeholder="6-20位数字字符组成，区分大小写"/></p>
+			     <p id="formart_password"style="color: red;display: none;">密码格式不正确</p>
+			    <p>密码确认<input type="password" name="pwd-1" id="pwd-1" value="" placeholder="确认密码"/></p>
+			    <p id="formart_password_1"style="color: red;display: none;">密码不正确</p>
+			    <p><input type="checkbox" name="chek" id="chek" value="" checked=""/>同意 <a href="" id="lianjie">良仓注册条款</a> </p>
+			    <p id="formart_check"style="color: red;display: none;">请确认已同意注册条款</p>
+			    <input type="submit" name="zhucebtn" id="zhucebtn" value="立即注册" />
+			    <p><a href="denglu.html" id="loginbtn">登陆良仓</a></p>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/liangcang.js" type="text/javascript" charset="utf-8"></script>
+</html>
